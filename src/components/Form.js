@@ -17,6 +17,8 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
     businessAddress2: "",
     state: "",
     city: "",
+    dot: "", 
+    mc: "",
     typeOfBusiness: "",
     driversCount: "",
     estimatedMonthlyFuelSpend: "",
@@ -223,7 +225,36 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
                 id="City"
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 placeholder="City"
-                value={formDataStepTwo.City}
+                value={formDataStepTwo.city}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="mb-6">
+              <label htmlFor="dot" className="block mb-2 text-sm font-medium text-white dark:text-white">
+                DOT Number
+              </label>
+              <input
+                id="dot"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder="DOT"
+                value={formDataStepTwo.dot}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="mc" className="block mb-2 text-sm font-medium text-white dark:text-white">
+                MC Number
+              </label>
+              <input
+                id="mc"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder="MC"
+                value={formDataStepTwo.mc}
                 onChange={handleChange}
                 required
               />
