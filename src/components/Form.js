@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from 'emailjs-com';
 
 const Form = ({ currentStephandler, step, formDataHandler }) => {
   const [finalForm, setFinalForm] = useState({});
@@ -35,7 +36,7 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
     privateEmail: "",
   });
 
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
 
     if (step === 4) currentStephandler(step + 1);
@@ -54,6 +55,43 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
       formDataStepOne.vehiclesNumber !== ""
     )
       currentStephandler(step + 1);
+
+    const sendEmail = (data) => {
+      // var endpointUrl = "https://public.herotofu.com/v1/b9222170-0548-11ee-8025-97a9fb2f29da"
+      // fetch(endpointUrl, {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(data),
+      // })
+      //   .then((response) => {
+      //     if (response.status === 422) {
+      //       throw new Error("Are you robot?");
+      //     }
+      //     if (response.status !== 200) {
+      //       throw new Error(`${response.statusText} (${response.status})`);
+      //     }
+      //     return response.json();
+      //   })
+      //   .then(() => {
+      //   })
+      //   .catch((err) => {
+      //   });
+      
+      emailjs.send('service_n9p2maj', 'template_27oxwma', {from_name: formDataStepOne.firstName, message: JSON.stringify(data)}, 'eR_z0Vz_6nMqokigU')
+        .then((result) => {
+          console.log('Email successfully sent!', result.text);
+        }, (error) => {
+          console.log('An error occurred while sending the email:', error.text);
+        });
+    };
+
+    if(step == 1){
+      var data = {...formDataStepOne, ...formDataStepTwo, ...formDataStepThree}
+      var res = await sendEmail(data)
+    }
   };
 
   const handleChange = (e) => {
@@ -439,7 +477,7 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        {step === 3 ? "Apply" : "Next Step"}
+        Next Step
       </button>
     </form>
   ) : (
@@ -560,7 +598,7 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
         onClick={formHandler}
         className="text-white mt-5  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        {step === 4 ? "Apply" : "Next Step"}
+        {step === 4 ? "Submit" : "Next Step"}
       </button>
     </div>
   );
