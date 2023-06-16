@@ -88,7 +88,7 @@ const Form = ({ currentStephandler, step, formDataHandler }) => {
         });
     };
 
-    if(step == 1){
+    if(step == 4){
       var data = {...formDataStepOne, ...formDataStepTwo, ...formDataStepThree}
       var res = await sendEmail(data)
     }
