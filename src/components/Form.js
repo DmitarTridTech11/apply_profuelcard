@@ -85,30 +85,41 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
     currentStepHandler(step + 1);
 
     const sendEmail = (data) => {
-      // var endpointUrl = "https://public.herotofu.com/v1/b9222170-0548-11ee-8025-97a9fb2f29da"
-      // fetch(endpointUrl, {
-      //   method: "POST",
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(data),
-      // })
-      //   .then((response) => {
-      //     if (response.status === 422) {
-      //       throw new Error("Are you robot?");
-      //     }
-      //     if (response.status !== 200) {
-      //       throw new Error(`${response.statusText} (${response.status})`);
-      //     }
-      //     return response.json();
-      //   })
-      //   .then(() => {
-      //   })
-      //   .catch((err) => {
-      //   });
+
+    const formattedMessage = `
+      You got a new application from: ${data.firstName} ${data.lastName}
+
+      Contact Information:
+      Email: ${data.email}
+      Phone Number: ${formatPhoneNumber(data.phoneNumber)}
+
+      Business Information:
+      Business Name: ${data.businessName}
+      Zip Code: ${data.zipCode}
+      Number of Vehicles: ${data.vehiclesNumber}
+      Business Address: ${data.businessAddress}, ${data.businessAddress2}
+      State: ${data.state}, City: ${data.city}
+
+      Business Details:
+      Type of Business: ${data.typeOfBusiness}
+      Drivers Count: ${data.driversCount}
+      Estimated Monthly Fuel Spend: ${data.estimatedMonthlyFuelSpend}
+      Years in Business: ${data.yearsinBusiness}
+
+      Owner Information:
+      First Name: ${data.firstNameOwner}
+      Last Name: ${data.lastNameOwner}
+      Date of Birth: ${data.dateOfBirth}
+      Social Security Number: ${data.socialSecNumber}
+      Street Address: ${data.streetAddress}
+      Mobile Phone Number: ${formatPhoneNumber(data.mobilePhoneNumber)}
+      Private Email: ${data.privateEmail}
+  `;
       
-      emailjs.send('service_n9p2maj', 'template_27oxwma', {from_name: formDataStepOne.firstName, message: JSON.stringify(data)}, 'eR_z0Vz_6nMqokigU')
+      emailjs.send('service_n9p2maj', 'template_27oxwma', {
+        from_name: formDataStepOne.firstName, 
+        message: formattedMessage 
+      }, 'eR_z0Vz_6nMqokigU')
         .then((result) => {
           console.log('Email successfully sent!', result.text);
         }, (error) => {
@@ -343,8 +354,6 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
           </div>
         </div>
       )}
-
-
 
       {step === 3 && (
         <div>
