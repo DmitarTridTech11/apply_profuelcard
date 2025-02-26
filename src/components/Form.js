@@ -247,15 +247,9 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
              <p>Drivers Count: {formDataStepOne.driversCount}</p>
           </div>
 
-          <div className="flex items-center">
-          
-             
-             
-          </div>
-
           <div
             className="flex items-center justify-between"
-            style={{ marginTop: 20 }}
+            style={{ marginTop: 20, display: "flex", flexDirection: "column" }}
           >
              <p>{formDataStepOne.firstName} {formDataStepOne.lastName}</p>
             <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
