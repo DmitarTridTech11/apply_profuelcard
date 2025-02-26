@@ -229,35 +229,39 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
         <div style={{ marginRight: 40 }}>
           <div className="flex items-center justify-between">
             <p style={{ fontWeight: "500", fontSize: 20 }}>
-              {formDataStepOne.firstName} {formDataStepOne.lastName}
+              Business name: {formDataStepOne.businessName}
             </p>
           </div>
 
           <div className="flex items-center" style={{ marginTop: 15 }}>
-            <p>{formDataStepOne.email}</p>
-          </div>
-
-          <div className="flex items-center">
-            <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
-          </div>
-
-          <div className="flex items-center">
             <p>MC: {formDataStepOne.mc}</p>
           </div>
 
           <div className="flex items-center">
-            <p>DOT: {formDataStepOne.dot}</p>
+             <p>DOT: {formDataStepOne.dot}</p>
+          </div>
+
+          <div className="flex items-center">
+             <p>Drivers Count: {formDataStepOne.driversCount}</p>
+          </div>
+
+          <div className="flex items-center">
+          
+              <p>{formDataStepOne.firstName} {formDataStepOne.lastName}</p>
+             
           </div>
 
           <div
             className="flex items-center justify-between"
             style={{ marginTop: 20 }}
           >
-            <p>Business name: {formDataStepOne.businessName}</p>
+             <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
+            
           </div>
 
           <div className="flex items-center justify-between">
-            <p>Drivers Count: {formDataStepOne.driversCount}</p>
+            <p>{formDataStepOne.email}</p>
+           
           </div>
         </div>
       </div>
