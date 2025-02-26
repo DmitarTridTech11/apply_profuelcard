@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {step < 5 ? (
+      {step < 3 ? (
         <>
           <div className="App-header flex flex-col justify-center items-center pt-7">
             {/* Section for "Join ProFuelCard" and logo */}
@@ -33,8 +33,12 @@ function App() {
               <div className="p-10 ease-in-out duration-500">
                 <Steper step={step} />
               </div>
-              <div className="pl-10" style={{width: 600}}>
-                <Form currentStepHandler={currentStepHandler} step={step} formDataHandler={formDataHandler} />
+              <div className="pl-10" style={{ width: 600 }}>
+                <Form
+                  currentStepHandler={currentStepHandler}
+                  step={step}
+                  formDataHandler={formDataHandler}
+                />
               </div>
             </div>
           </div>
