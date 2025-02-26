@@ -52,8 +52,6 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
       Business Name: ${data.businessName}
       MC: ${data.mc}
       DOT: ${data.dot}    
-
-      Business Details:
       Drivers Count: ${data.driversCount}
   `;
 
