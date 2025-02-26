@@ -41,7 +41,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
     currentStepHandler(step + 1);
 
     const sendEmail = (data) => {
-      const formatedSubject = 'New Application from ${data.businessName}'
+      const formatedSubject = `New Application from ${data.businessName}`
       const formattedMessage = `
       You got a new application from: ${data.firstName} ${data.lastName}
 
@@ -249,7 +249,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
 
           <div className="flex items-center">
           
-              <p>{formDataStepOne.firstName} {formDataStepOne.lastName}</p>
+             
              
           </div>
 
@@ -257,7 +257,8 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
             className="flex items-center justify-between"
             style={{ marginTop: 20 }}
           >
-             <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
+             <p>{formDataStepOne.firstName} {formDataStepOne.lastName}</p>
+            <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
             
           </div>
 
