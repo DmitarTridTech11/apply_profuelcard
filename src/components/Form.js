@@ -50,11 +50,10 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
 
       Business Information:
       Business Name: ${data.businessName}
-      Business Address: ${data.businessAddress}, ${data.businessAddress2}
-      State: ${data.state}, City: ${data.city}
+      MC: ${data.mc}
+      DOT: ${data.dot}    
 
       Business Details:
-      Type of Business: ${data.typeOfBusiness}
       Drivers Count: ${data.driversCount}
   `;
 
@@ -218,7 +217,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
             type="submit"
             className="rounded-3xl text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Next step
+            Review
           </button>
         </div>
       </div>
@@ -244,11 +243,19 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
             <p>{formatPhoneNumber(formDataStepOne.phoneNumber)}</p>
           </div>
 
+          <div className="flex items-center">
+            <p>MC: {formDataStepOne.mc}</p>
+          </div>
+
+          <div className="flex items-center">
+            <p>DOT: {formDataStepOne.dot}</p>
+          </div>
+
           <div
             className="flex items-center justify-between"
             style={{ marginTop: 20 }}
           >
-            <p>{formDataStepOne.businessName}</p>
+            <p>Business name: {formDataStepOne.businessName}</p>
           </div>
 
           <div className="flex items-center justify-between">
