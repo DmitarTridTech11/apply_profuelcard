@@ -229,7 +229,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
         <div style={{ marginRight: 40 }}>
           <div className="flex items-center justify-between">
             <p style={{ fontWeight: "500", fontSize: 20 }}>
-              Business name: {formDataStepOne.businessName}
+              {formDataStepOne.businessName}
             </p>
           </div>
 
