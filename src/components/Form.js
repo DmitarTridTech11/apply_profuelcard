@@ -41,6 +41,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
     currentStepHandler(step + 1);
 
     const sendEmail = (data) => {
+      const formatedSubject = 'New Application from ${data.businessName}'
       const formattedMessage = `
       You got a new application from: ${data.firstName} ${data.lastName}
 
@@ -62,6 +63,7 @@ const Form = ({ currentStepHandler, step, formDataHandler }) => {
           {
             from_name: formDataStepOne.firstName,
             message: formattedMessage,
+            subject: formatedSubject,
           },
           "eR_z0Vz_6nMqokigU"
         )
